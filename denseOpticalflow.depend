@@ -1,0 +1,94 @@
+# depslib dependency file v1.0
+1365272810 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\main.cpp
+	"cv.h"
+	"highgui.h"
+	"./include/functions.h"
+	"./include/graphics.h"
+	"./include/Records.h"
+	"./include/DetectionTool.h"
+	<iostream>
+
+1363774609 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\source\functions.c
+
+1363780812 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\source\functions.cpp
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1364479647 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\header\functions.h
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1364479639 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\source\functions.cpp
+	"../header/functions.h"
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1364475839 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\header\graphics.h
+	"cv.h"
+	"highgui.h"
+	<iostream>
+	"../header/functions.h"
+
+1364475797 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\source\graphics.cpp
+	"../header/graphics.h"
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1365066816 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\include\functions.h
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1364998218 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\include\graphics.h
+	"cv.h"
+	"highgui.h"
+	<iostream>
+	"../include/functions.h"
+
+1364998260 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\src\functions.cpp
+	"../include/functions.h"
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1365068445 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\src\graphics.cpp
+	"../include/graphics.h"
+	"../include/DetectionTool.h"
+	"cv.h"
+	"highgui.h"
+	<iostream>
+
+1365363265 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\src\records.cpp
+	"../include/Records.h"
+
+1365362165 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\include\records.h
+	<vector>
+	<cv.h>
+	"Object.h"
+
+1365272722 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\src\object.cpp
+	"../include/Object.h"
+
+1365071366 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\include\object.h
+	<cv.h>
+
+1365067457 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\include\algorithm.h
+	"cv.h"
+	"highgui.h"
+	<iostream>
+	<vector>
+
+1365429920 c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\include\detectiontool.h
+	"cv.h"
+	"highgui.h"
+	"cvaux.h"
+	<iostream>
+	<vector>
+
+1365086918 source:c:\users\lu-bu_000\documents\programmation\c++\denseopticalflow\src\detectiontool.cpp
+	"../include/DetectionTool.h"
+
