@@ -15,10 +15,10 @@ DecisionCout::~DecisionCout(void)
 void DecisionCout::run(Container& container)
 {
 	Records rec = container.getRecords();
-    for(unsigned int u = 0; u < rec.getObjects().size(); u++)
+    /*for(unsigned int u = 0; u < rec.getObjects().size(); u++)
     {
 		cout << rec.getObjects().at(u).getDetectionNumber() << " " << rec.getObjects().at(u).getDistance() << " " << rec.getObjects().at(u).getMovementUpdateNumber() << endl;
-    }
+    }*/
 
 	int total_detection = 0;
 	int max_distance = 0;

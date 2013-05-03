@@ -33,6 +33,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="OpenCVReleaseStatic.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -72,6 +73,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\DecisionCout.cpp" />
+    <ClCompile Include="src\DecisionProcessing.cpp" />
     <ClCompile Include="src\ObjectFollowing.cpp" />
     <ClCompile Include="src\AlgorithmManager.cpp" />
     <ClCompile Include="src\BackgroundSubstract.cpp" />
@@ -88,6 +91,8 @@
     <ClInclude Include="include\AlgorithmManager.h" />
     <ClInclude Include="include\BackgroundSubstract.h" />
     <ClInclude Include="include\Container.h" />
+    <ClInclude Include="include\DecisionCout.h" />
+    <ClInclude Include="include\DecisionProcessing.h" />
     <ClInclude Include="include\DetectionProcessing.h" />
     <ClInclude Include="include\DetectionTool.h" />
     <ClInclude Include="include\HumanDetection.h" />

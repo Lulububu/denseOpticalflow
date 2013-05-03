@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VDense", "VDense.vcxproj", "{FFD49B35-5802-4B78-8C2F-33D31673CE2B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D25109AF-3395-40CA-9478-CDAD43990D54}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Downloads\icone\icone.ico = ..\..\..\..\Downloads\icone\icone.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
