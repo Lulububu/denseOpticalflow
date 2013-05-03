@@ -32,4 +32,12 @@ void AlgorithmManager::detectionProcRun(Container& container)
 		((*it))->run(container);
 }
 
-
+void AlgorithmManager::addDecision(DecisionProcessing* decision)
+{
+	decisionprocess.push_back(decision);
+}
+void AlgorithmManager::decisionRun(Container& container)
+{
+	for (vector<DecisionProcessing*>::iterator it = decisionprocess.begin(); it!=decisionprocess.end(); ++it)
+		((*it))->run(container);
+}

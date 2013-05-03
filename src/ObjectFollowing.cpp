@@ -32,7 +32,7 @@ void ObjectFollowing::run(Container& container)
 			{
 				//cout << "update position " << dir.x<< " " << dir.y<<endl;
 				//cout << "rect " << rect.x << " " << rect.y << " " << rect.width << " " << rect.height << endl;
-				container.getRecords().getObjects().at(i).updatePosition(dir);
+				container.getRecords().getObjects().at(i).updatePosition(dir, container.getImg().size().width, container.getImg().size().height);
 			}
 
 			//container.getRecords().updatePosition(flow);

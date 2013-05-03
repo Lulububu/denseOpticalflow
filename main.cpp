@@ -10,7 +10,7 @@
 #include "./include/HumanDetection.h"
 #include "./include/MovementDetection.h"
 #include "./include/ObjectFollowing.h"
-
+#include "./include/DecisionCout.h"
 
 #include <iostream>
 using namespace std;
@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 
     
     
-    VideoCapture cap("menage.mov");
+    VideoCapture cap("sdetect/clignotement.mov");
 
 
     //VideoCapture cap(0);
@@ -36,22 +36,29 @@ int main(int argc, char** argv)
 	manager.addPreprocess(&bgsub);
 
 	MovementDetection mdetect;
-	manager.addDetection(&mdetect);
+	//manager.addDetection(&mdetect);
 
 	ObjectFollowing objFoll;
-	//manager.addDetection(&objFoll);
+	manager.addDetection(&objFoll);
 
 	HumanDetection hdetect;
 	manager.addDetection(&hdetect);
 
-	Container container(0.1);
+	DecisionCout decision;
+	manager.addDecision(&decision);
+
+	
 
     if( !cap.isOpened() )
         return -1;
 
 
+
     Mat frame;
     cap >> frame;
+
+	Container container(frame.size().width, frame.size().height, 0.1);
+
     do
     {
 		container.setNewFrame(frame);
@@ -59,17 +66,20 @@ int main(int argc, char** argv)
 
 		manager.preProcRun(container);
 		manager.detectionProcRun(container);
-
+		
                 
 
         
   		for(unsigned int u = 0; u < container.getRecords().getObjects().size(); u++)
         {
 			Rect r = container.getRecords().getObjects().at(u).getCurrentPosition();
+			if(r.x >= 0)
+			{
             rectangle( frame,
                  cvPoint( r.x, r.y ),
                  cvPoint( r.x + r.width, r.y + r.height ),
                  CV_RGB( 255, 0, 0 ), 1, 8, 0 );
+			}
 
         }
 		imshow("origin", container.getImg());
@@ -81,11 +91,9 @@ int main(int argc, char** argv)
 
         cap >> frame;
     }while(!frame.empty());
-	Records rec = container.getRecords();
-    for(unsigned int u = 0; u < rec.getObjects().size(); u++)
-    {
-        cout << rec.getObjects().at(u).getDetectionNumber() << endl;
-    }
+	
+
+	manager.decisionRun(container);
 
     return 0;
 

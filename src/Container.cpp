@@ -1,9 +1,9 @@
 #include "..\include\Container.h"
 #include "../include/Records.h"
 
-Container::Container(float ceil_)
+Container::Container(int max_width, int max_height, float ceil_): rec(max_width, max_height, ceil_)
 {
-	rec = Records(ceil_);
+//	rec = Records(max_width, max_height, ceil_);
 }
 
 

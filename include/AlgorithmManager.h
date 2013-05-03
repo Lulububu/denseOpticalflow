@@ -5,6 +5,7 @@ using namespace std;
 
 #include "PreProcessing.h"
 #include "DetectionProcessing.h"
+#include "DecisionProcessing.h"
 
 class AlgorithmManager
 {
@@ -17,10 +18,15 @@ public:
 
 	void addDetection(DetectionProcessing* detection);
 	void detectionProcRun(Container&);
+	
+	void addDecision(DecisionProcessing* decision);
+	void decisionRun(Container&);
 
 private:
 	vector<PreProcessing*> preprocesses;
 
 	vector<DetectionProcessing*> detectionsprocess;
+
+	vector<DecisionProcessing*> decisionprocess;
 };
 

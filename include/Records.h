@@ -17,7 +17,7 @@ class Records
 		 * @param ceil Seuil à atteindre pour que deux rectangles soit considérés comme identiques. 
 		 * Ce seuil est comparé au résultat du calcul de l'aire de l'intersection divisé par l'aire de l'union des rectangles.
 		 **/
-        Records(float ceil_ = 0.5);
+        Records(int max_width, int max_height, float ceil_ = 0.5);
 
         virtual ~Records();
 
@@ -58,8 +58,8 @@ class Records
 
         void checkMatch(cv::Rect& coordinates, float& match_value, int& match_index);
 
-    private:
-
+		int max_width;
+		int max_height;
 
 
 };

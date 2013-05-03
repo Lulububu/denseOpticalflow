@@ -7,7 +7,8 @@
 class Container
 {
 public:
-	Container(float ceil_ = 0.5);
+	Container(int max_width, int max_height, float ceil_ = 0.5);
+	
 	virtual ~Container(void);
 	cv::Mat& getImg();
 	void setNewFrame(cv::Mat frame);

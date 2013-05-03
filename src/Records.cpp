@@ -2,8 +2,9 @@
 #include "../include/DetectionTool.h"
 using namespace std;
 
-Records::Records(float ceil_): ceil(ceil_)
+Records::Records(int max_width_, int max_height_, float ceil_): ceil(ceil_), max_width(max_width_), max_height(max_height_)
 {
+
 }
 
 Records::~Records()
@@ -43,7 +44,7 @@ bool Records::checkMatchMovement(cv::Rect& coordinates, cv::Point& direction)
     //si le max est supérieur au seuil fixé, on considère que c'est le même et on met à jour les données
     if(match_index != -1 && match_value > ceil)
     {
-        objects.at(match_index).updatePosition(direction);
+        objects.at(match_index).updatePosition(direction, max_width, max_height);
         return true;
     }else
     {
@@ -132,7 +133,7 @@ void Records::checkMatchMovement(vector<cv::Rect>& zones, vector<cv::Point>& dir
         {
             if(current_matches.at(i).first != -1)
             {
-                objects.at(i).updatePosition(directions.at(current_matches.at(i).first));
+                objects.at(i).updatePosition(directions.at(current_matches.at(i).first), max_width, max_height);
             }
         }
     }
@@ -150,7 +151,7 @@ void Records::updatePosition(cv::Mat& flow)
 		{
 			//cout << "update position " << dir.x<< " " << dir.y<<endl;
 			//cout << "rect " << rect.x << " " << rect.y << " " << rect.width << " " << rect.height << endl;
-			objects.at(i).updatePosition(dir);
+			objects.at(i).updatePosition(dir, max_width, max_height);
 		}
 	}
 }

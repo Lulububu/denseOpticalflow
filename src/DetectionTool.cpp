@@ -61,19 +61,22 @@ Point DetectionTool::getDirectionRectangle(const Mat_<Point2f>& flow, Point a, P
 {
     Point res(0.f,0.f);
 	int nb_elem = 0;
+
     //Parcours des points à l'intérieur du rectangle
     for(int i = a.x; i < b.x; i++)
     {
         for(int j = a.y; j < b.y; j++)
         {
-            //Sommation de chaque mouvement contenu dans le rectangle
-            res.x += (float) (flow.at<Point2f>(j,i).x);
-            res.y += (float) (flow.at<Point2f>(j,i).y);
+			//Sommation de chaque mouvement contenu dans le rectangle
+			res.x += (float) (flow.at<Point2f>(j,i).x);
+			res.y += (float) (flow.at<Point2f>(j,i).y);
 
 			if(flow.at<Point2f>(j,i).x != 0 || flow.at<Point2f>(j,i).y !=0)
 				nb_elem++;
+			
         }
     }
+
     //float nb_elem = (float)((b.x - a.x) * (b.y - a.y));
 
     //nb_elem /= 2;
@@ -226,3 +229,4 @@ void DetectionTool::updateImage(cv::Mat img)
 	cvtColor(img, previous_img, CV_RGB2GRAY);
     previous_img_initiated = true;
 }
+

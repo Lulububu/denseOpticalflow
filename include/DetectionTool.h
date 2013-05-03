@@ -110,6 +110,8 @@ class DetectionTool
 		void updateImage(cv::Mat img);
 		static cv::Point getDirectionFlow(const cv::Mat_<cv::Point2f>& flow);
 
+
+
     protected:
         cv::CascadeClassifier cas;
         CvBGStatModel* background_model;
