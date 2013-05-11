@@ -64,18 +64,18 @@ unsigned int Object::getDistance()
 
 void Object::checkPointBound(cv::Rect& rect, int width, int height)
 {
-	//le rectangle dépassant sur une extrémité, on "écrase" le rectangle sur ce côté.
+	//le rectangle dÃ©passant sur une extrÃ©mitÃ©, on "Ã©crase" le rectangle sur ce cÃ´tÃ©.
 
-	//dépassement à gauche
+	//dÃ©passement Ã  gauche
 	if(rect.x < 0)
 	{
-		//dépasse  entièrement de l'image
+		//dÃ©passe  entiÃ¨rement de l'image
 		if(rect.x + rect.width < 0)
 		{
 			rect.x = 0;
 			rect.width = 0;
 		}
-		else //dépasse en partie
+		else //dÃ©passe en partie
 		{
 			rect.width = rect.width + rect.x;
 			rect.x = 0;
@@ -83,47 +83,47 @@ void Object::checkPointBound(cv::Rect& rect, int width, int height)
 		
 	}
 
-	//dépassement à droite
+	//dÃ©passement Ã  droite
 	if(rect.x +  rect.width >= width)
 	{
-		//dépasse entièrement de l'image
+		//dÃ©passe entiÃ¨rement de l'image
 		if(rect.x >= width)
 		{
 			rect.x = width - 1;
 			rect.width = 0;
 		}
-		else //dépasse en partie
+		else //dÃ©passe en partie
 		{
 			rect.width = width - rect.x - 1;
 		}
 	}
 
-	//dépassement en haut de l'image
+	//dÃ©passement en haut de l'image
 	if(rect.y < 0)
 	{
-		//dépasse  entièrement de l'image
+		//dÃ©passe  entiÃ¨rement de l'image
 		if(rect.y + rect.height < 0)
 		{
 			rect.y = 0;
 			rect.height = 0;
 		}
-		else //dépasse en partie
+		else //dÃ©passe en partie
 		{
 			rect.height = rect.height + rect.y;
 			rect.y = 0;
 		}
 	}
 
-	//dépassement en bas de l'image
+	//dÃ©passement en bas de l'image
 	if(rect.y +  rect.height >= height)
 	{
-		//dépasse entièrement de l'image
+		//dÃ©passe entiÃ¨rement de l'image
 		if(rect.y >= height)
 		{
 			rect.y = height - 1;
 			rect.height = 0;
 		}
-		else //dépasse en partie
+		else //dÃ©passe en partie
 		{
 			rect.height = height - rect.y - 1;
 		}

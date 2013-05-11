@@ -1,26 +1,32 @@
 #include "..\include\Container.h"
-#include "../include/Records.h"
 
-Container::Container(int max_width, int max_height, float ceil_): rec(max_width, max_height, ceil_)
+
+Container::Container()
 {
-//	rec = Records(max_width, max_height, ceil_);
 }
+
 
 
 Container::~Container(void)
 {
 }
 
+
+
 cv::Mat& Container::getImg()
 {
 	return img;
 }
 
-void Container::setNewFrame(cv::Mat frame)
+void Container::setNewFrame(cv::Mat& frame)
 {
 	img = frame;
 }
 
+void Container::setResolution(int width, int height)
+{
+	rec.setResolution(width, height);
+}
 
 std::vector<cv::Rect>& Container::getHumanDetections()
 {
@@ -32,7 +38,12 @@ Records& Container::getRecords()
 	return rec;
 }
 
-DetectionTool& Container::getDetectionTool()
+void Container::setVideoFileName(std::string file_name)
 {
-	return tool;
+	video_file_name = file_name;
+}
+
+std::string Container::getVideoFileName()
+{
+	return video_file_name;
 }

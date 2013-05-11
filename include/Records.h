@@ -6,56 +6,88 @@
 
 #include "Object.h"
 /**
- * Classe de gestion des objets enregistrÈs au cours de la dÈtection.  
- *
+ * Classe de gestion des objets enregistr√©s au cours de la d√©tection.  
 **/
 class Records
 {
     public:
 		/**
 		 * Contructeur unique.
-		 * @param ceil Seuil ‡ atteindre pour que deux rectangles soit considÈrÈs comme identiques. 
-		 * Ce seuil est comparÈ au rÈsultat du calcul de l'aire de l'intersection divisÈ par l'aire de l'union des rectangles.
+		 * @param max_width largeur des frames sur lesquelles on travaille.
+		 * @param max_height hauteur des frames sur lesquelles on travaille.
 		 **/
-        Records(int max_width, int max_height, float ceil_ = 0.5);
+        Records();
 
         virtual ~Records();
 
 		/**
-		 * VÈrifie si l'ÈlÈment passÈ en paramËtre correspond ‡ une des zones dÈj‡ prÈsentes dans l'objet.
-		 * Si c'est le cas, une dÈtection est ajoutÈ ‡ cette zone. Autrement, une nouvelle zone est ajoutÈe.
-		 * @param coordinates Zone a comparÈ avec les zones existantes.
-		 * @return True si correspondance, False si crÈation. 
+		 * Renseigne la r√©solution de la vid√©o sur laquelle on travaille.
+		 * @param max_width largeur de l'image.
+		 * @param max_height hauteur de l'image.
 		 **/
-        bool checkMatchDetection(cv::Rect& coordinates);
+		void setResolution(int max_width, int max_height);
 
 		/**
-		 * VÈrifie si l'ÈlÈment passÈ en paramËtre correspond ‡ une des zones dÈj‡ prÈsentes dans l'objet.
-		 * Si c'est le cas, la position de l'objet est mise ‡ jour avec la direction. Autrement, une nouvelle zone est ajoutÈe.
-		 * @param coordinates Zone a comparÈ avec les zones existantes.
-		 * @param direction Direction correspondant ‡ la zone du paramËtre prÈcÈdent.
-		 * @return True si correspondance, False si crÈation. 
+		 * V√©rifie si l'√©l√©ment pass√© en param√®tre correspond √† une des zones d√©j√† pr√©sentes dans l'objet.
+		 * Si c'est le cas, une d√©tection est ajout√© √† cette zone. Autrement, une nouvelle zone est ajout√©e.
+		 * @param coordinates Zone a compar√© avec les zones existantes.
+		 * @param ceil seuil indiquant si deux zones (Rect) peuvent √™tre consid√©r√©es comme identiques.
+		 * @return True si correspondance, False si cr√©ation. 
 		 **/
-        bool checkMatchMovement(cv::Rect& coordinates, cv::Point& direction);
+        bool checkMatchDetection(cv::Rect& coordinates, float ceil);
 
 		/**
-		 * MÈthode calculant les correspondance entre un ensemble de zones et les zones dÈj‡ surveillÈes. 
-		 * @param Vecteur contenant l'ensemble des zones ‡ faire correspondre.
-		 * @param Vecteur de mÍme taille contenant les directions correspondant aux zones.
+		 * V√©rifie si l'√©l√©ment pass√© en param√®tre correspond √† une des zones d√©j√† pr√©sentes dans l'objet.
+		 * Si c'est le cas, la position de l'objet est mise √† jour avec la direction. Autrement, une nouvelle zone est ajout√©e.
+		 * @param coordinates Zone a compar√© avec les zones existantes.
+		 * @param direction Direction correspondant √† la zone du param√®tre pr√©c√©dent.
+		 * @param ceil seuil indiquant si deux zones (Rect) peuvent √™tre consid√©r√©es comme identiques.
+		 * @return True si correspondance, False si cr√©ation. 
 		 **/
-        void checkMatchMovement(std::vector<cv::Rect>& zones, std::vector<cv::Point>& dirs);
+        bool checkMatchMovement(cv::Rect& coordinates, cv::Point& direction, float ceil);
 
+		/**
+		 * M√©thode calculant les correspondance entre un ensemble de zones et les zones d√©j√† surveill√©es. 
+		 * @param Vecteur contenant l'ensemble des zones √† faire correspondre.
+		 * @param Vecteur de m√™me taille contenant les directions correspondant aux zones.
+		 * @param ceil seuil indiquant si deux zones (Rect) peuvent √™tre consid√©r√©es comme identiques.
+		 **/
+        void checkMatchMovement(std::vector<cv::Rect>& zones, std::vector<cv::Point>& dirs, float ceil);
 
+		/**
+		 * Ajoute un nouvel objet √† la classe.
+		 * @param coordinates coordonn√©es du nouvel objet.
+		 **/
         void createObject(cv::Rect coordinates);
 
+		/**
+		 * Renvoie la liste de tous les objets contenus dans la classe.
+		 * @return vector<Object> R√©f√©rence vers la liste d'objets cr√©es dans cette classe.
+		 **/
         std::vector<Object>& getObjects();
 
+		/**
+		 * Met √† jour la position de chaque objet suivi gr√¢ce √† la d√©tection de mouvement.
+		 * @param flow Matrice contenant le mouvement de l'ensemble de l'image.
+		 **/
 		void updatePosition(cv::Mat& flow);
 
     protected:
         std::vector<Object> objects;
-        float ceil;
-
+        
+		/**
+		 * V√©rifie si un des objets d√©j√† suivi correspond aux coordonn√©es de coordinates.
+		 * Si c'est le case, on indique la valeur de correspondance dans match_value et 
+		 * on indique l'indice de l'objet dans notre vecteurs (attributs objects).
+		 * @param coordinates Coordonn√©es de la zone dont l'on veut v√©rifier si elle correspond
+		 * √† un objet d√©j√† enregistr√©.
+		 * @param match_value R√©f√©rence qui va accueillir la valeur d'une √©ventuelle corrrespondance
+		 * entre les coordonne√©s pass√©es en param√®tres et les objets d√©j√† suivis. 0 si aucune correspondance 
+		 * n'est trouv√©e.
+		 * @param match_index Index de l'objet correspondant aux coordonn√©es pass√©es en param√®tre. 
+		 * Cette index correspond √† l'attribut objects de cette classe. -1 si aucune correspondance
+		 * n'est trouv√©e.
+		 **/
         void checkMatch(cv::Rect& coordinates, float& match_value, int& match_index);
 
 		int max_width;

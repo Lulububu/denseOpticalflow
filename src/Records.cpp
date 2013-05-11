@@ -2,7 +2,7 @@
 #include "../include/DetectionTool.h"
 using namespace std;
 
-Records::Records(int max_width_, int max_height_, float ceil_): ceil(ceil_), max_width(max_width_), max_height(max_height_)
+Records::Records()
 {
 
 }
@@ -11,15 +11,20 @@ Records::~Records()
 {
 }
 
+void Records::setResolution(int max_width_, int max_height_)
+{
+	max_width = max_width_;
+	max_height = max_height_;
+}
 
-bool Records::checkMatchDetection(cv::Rect& coordinates)
+bool Records::checkMatchDetection(cv::Rect& coordinates, float ceil)
 {
     float match_value;
     int match_index;
 
     checkMatch(coordinates, match_value, match_index);
 
-    //si le max est supÈrieur au seuil fixÈ, on considËre que c'est le mÍme et on met ‡ jour les donnÈes
+    //si le max est sup√©rieur au seuil fix√©, on consid√®re que c'est le m√™me et on met √† jour les donn√©es
     if(match_index != -1 && match_value > ceil)
     {
         objects.at(match_index).addDetection();
@@ -34,14 +39,14 @@ bool Records::checkMatchDetection(cv::Rect& coordinates)
     }
 }
 
-bool Records::checkMatchMovement(cv::Rect& coordinates, cv::Point& direction)
+bool Records::checkMatchMovement(cv::Rect& coordinates, cv::Point& direction, float ceil)
 {
     float match_value;
     int match_index;
 
     checkMatch(coordinates, match_value, match_index);
 
-    //si le max est supÈrieur au seuil fixÈ, on considËre que c'est le mÍme et on met ‡ jour les donnÈes
+    //si le max est sup√©rieur au seuil fix√©, on consid√®re que c'est le m√™me et on met √† jour les donn√©es
     if(match_index != -1 && match_value > ceil)
     {
         objects.at(match_index).updatePosition(direction, max_width, max_height);
@@ -59,23 +64,23 @@ void Records::checkMatch(cv::Rect& coordinates, float& match_value, int& match_i
 {
     //valeur maximale temporaire
     match_value = 0;
-    //indice de l'ÈlÈment le plus proche
+    //indice de l'√©l√©ment le plus proche
     match_index = -1;
 
-    //aire d'intersection de l'ÈlÈment courant
+    //aire d'intersection de l'√©l√©ment courant
     float tmp_intersect_area;
 
-    //ratio de corespondance de l'ÈlÈment courant avec celui passÈ en paramËtre
+    //ratio de corespondance de l'√©l√©ment courant avec celui pass√© en param√®tre
     float tmp_match;
 
     for(unsigned int i = 0; i < objects.size(); i++)
     {
         tmp_intersect_area = (float) ((objects.at(i).getCurrentPosition() & coordinates).area());
 
-        //on considËre que le ration correspond ‡ l'aire de l'intersection divisÈe par la somme des aires moins l'intersection
+        //on consid√®re que le ration correspond √† l'aire de l'intersection divis√©e par la somme des aires moins l'intersection
         tmp_match = tmp_intersect_area / (objects.at(i).getCurrentPosition().area() + coordinates.area() - tmp_intersect_area) ;
 
-        //on conserve la valeur de ration la plus importante
+        //on conserve la valeur de ratio la plus importante
         if(tmp_match > match_value)
         {
             match_value = tmp_match;
@@ -94,13 +99,13 @@ std::vector<Object>& Records::getObjects()
     return objects;
 }
 
-void Records::checkMatchMovement(vector<cv::Rect>& zones, vector<cv::Point>& directions)
+void Records::checkMatchMovement(vector<cv::Rect>& zones, vector<cv::Point>& directions, float ceil)
 {
     cv::Rect zone;
     cv::Point direction;
 
-	//vecteur enregistrant les associations en cours entre zones. Le premier ÈlÈment correspond ‡ l'indice de l'ÈlÈment dans zones.
-	//le deuxiËme correspond ‡ la valeur de correspondance. Cela permet de ne garder que la meilleur correspondance.
+	//vecteur enregistrant les associations en cours entre zones. Le premier √©l√©ment correspond √† l'indice de l'√©l√©ment dans zones.
+	//le deuxi√®me correspond √† la valeur de correspondance. Cela permet de ne garder que la meilleur correspondance.
     vector<pair<int, float> > current_matches(objects.size(), pair<int, float>(0, 0.f));
 
 	for(unsigned int i = 0; i < zones.size(); i++)
@@ -108,25 +113,25 @@ void Records::checkMatchMovement(vector<cv::Rect>& zones, vector<cv::Point>& dir
         float match_value = 0;
         int match_index = -1;
 
-		//pour chaque ÈlÈment de la zone, on vÈrifie si il correspond aux ÈlÈments dÈj‡ prÈsent.
+		//pour chaque √©l√©ment de la zone, on v√©rifie si il correspond aux √©l√©ments d√©j√† pr√©sent.
         checkMatch(zones.at(i), match_value, match_index);
         if(match_index == -1)
         {
-			//si il n'existe pas on crÈe un nouvel objet
+			//si il n'existe pas on cr√©e un nouvel objet
             zone = zones.at(i);
             createObject(
                 cv::Rect(zone.x, zone.y, zone.width, zone.height)
             );
-			//on ajoute une cellule pour enregistrer les Èventuelles futures correspondances avec ce nouvel ÈlÈment.
+			//on ajoute une cellule pour enregistrer les √©ventuelles futures correspondances avec ce nouvel √©l√©ment.
 			current_matches.push_back(pair<int, float>(0, 0.f));
         }else if( current_matches.at(match_index).second < match_value)
         {
-			//sinon, mise ‡ jour de l'ÈlÈment correspondant le plus.
+			//sinon, mise √† jour de l'√©l√©ment correspondant le plus.
             current_matches.at(match_index) = pair<int, float>(i, match_value);
         }
     }
 
-	//A la fin du calcul, on ne garde que les correspondances supÈrieur au seuil.
+	//A la fin du calcul, on ne garde que les correspondances sup√©rieur au seuil.
     for(unsigned int i = 0; i < current_matches.size(); i++)
     {
         if(current_matches.at(i).second > ceil)
