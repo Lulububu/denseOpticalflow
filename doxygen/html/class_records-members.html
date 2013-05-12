@@ -28,6 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logoKiw.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Kiwatch Détection Forme Humaine
    </div>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_records.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -118,15 +119,16 @@ $(document).ready(function(){initNavTree('class_records.html','');});
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>max_height</b> (défini dans <a class="el" href="class_records.html">Records</a>)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>max_width</b> (défini dans <a class="el" href="class_records.html">Records</a>)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>objects</b> (défini dans <a class="el" href="class_records.html">Records</a>)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_records.html#a0aedabaee0ec77c19c5ececc4c0b99ff">Records</a>(int max_width, int max_height)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_records.html#adc18359fff09b65b9c9170ce048a2ee2">updatePosition</a>(cv::Mat &amp;flow)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Records</b>() (défini dans <a class="el" href="class_records.html">Records</a>)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_records.html#a186b2f18fd2d59930ceb034ea0ec0b07">Records</a>()</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_records.html#ae2d7fcad7fbf7c497cc05dc60af162b0">setResolution</a>(int max_width, int max_height)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_records.html#adc18359fff09b65b9c9170ce048a2ee2">updatePosition</a>(cv::Mat &amp;flow)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Records</b>() (défini dans <a class="el" href="class_records.html">Records</a>)</td><td class="entry"><a class="el" href="class_records.html">Records</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Généré le Mercredi Mai 8 2013 14:37:05 pour Kiwatch Détection Forme Humaine par
+    <li class="footer">Généré le Samedi Mai 11 2013 21:54:01 pour Kiwatch Détection Forme Humaine par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
   </ul>

@@ -2,9 +2,20 @@
 #include "cv.h"
 using namespace cv;
 
+#include <iostream>
+using namespace std;
+
 ObjectFollowing::ObjectFollowing(void)
 {
 	previous_img_initiated = false;
+
+	pyr_scale=0.5;
+	levels=2;
+	winsize=10;
+	iterations=2;
+	poly_n=14;
+	poly_sigma=2.0;
+	flags=256;
 }
 
 
@@ -50,8 +61,15 @@ std::string ObjectFollowing::getClassName()
 	return "ObjectFollowing";
 }
 
-void ObjectFollowing::setParameters(std::map<std::string, std::string>)
+void ObjectFollowing::setParameters(std::map<std::string, std::string> parameters)
 {
+	istringstream(parameters["pyr_scale"]) >> pyr_scale;
+	istringstream(parameters["levels"]) >> levels;
+	istringstream(parameters["winsize"]) >> winsize;
+	istringstream(parameters["iterations"]) >> iterations;
+	istringstream(parameters["poly_n"]) >> poly_n;
+	istringstream(parameters["poly_sigma"]) >> poly_sigma;
+	istringstream(parameters["flags"]) >> flags;
 
 }
 
@@ -76,7 +94,7 @@ Mat ObjectFollowing::getMovementDirection(Mat& img, Rect zone)
     if(previous_img_initiated)
 	{
 		Mat prev_roi = previous_img(zone).clone();
-        calcOpticalFlowFarneback(prev_roi, img_gray_roi, flow, 0.5, 2, 10, 2, 14, 2.0, cv::OPTFLOW_FARNEBACK_GAUSSIAN);
+        calcOpticalFlowFarneback(prev_roi, img_gray_roi, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags);
 	}
 	
 

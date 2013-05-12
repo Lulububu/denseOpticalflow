@@ -28,6 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logoKiw.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Kiwatch Détection Forme Humaine
    </div>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_processing.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -117,13 +118,14 @@ Graphe d'héritage de Processing:</div>
  <div class="center">
   <img src="class_processing.png" usemap="#Processing_map" alt=""/>
   <map id="Processing_map" name="Processing_map">
-<area href="class_decision_processing.html" alt="DecisionProcessing" shape="rect" coords="0,56,133,80"/>
-<area href="class_detection_processing.html" alt="DetectionProcessing" shape="rect" coords="214,56,347,80"/>
-<area href="class_pre_processing.html" alt="PreProcessing" shape="rect" coords="429,56,562,80"/>
+<area href="class_decision_processing.html" alt="DecisionProcessing" shape="rect" coords="71,56,204,80"/>
+<area href="class_detection_processing.html" alt="DetectionProcessing" shape="rect" coords="357,56,490,80"/>
+<area href="class_pre_processing.html" alt="PreProcessing" shape="rect" coords="572,56,705,80"/>
 <area href="class_decision_cout.html" alt="DecisionCout" shape="rect" coords="0,112,133,136"/>
-<area href="class_human_detection.html" alt="HumanDetection" shape="rect" coords="143,112,276,136"/>
-<area href="class_object_following.html" alt="ObjectFollowing" shape="rect" coords="286,112,419,136"/>
-<area href="class_background_substract.html" alt="BackgroundSubstract" shape="rect" coords="429,112,562,136"/>
+<area href="class_decision_file_save.html" alt="DecisionFileSave" shape="rect" coords="143,112,276,136"/>
+<area href="class_human_detection.html" alt="HumanDetection" shape="rect" coords="286,112,419,136"/>
+<area href="class_object_following.html" alt="ObjectFollowing" shape="rect" coords="429,112,562,136"/>
+<area href="class_background_substract.html" alt="BackgroundSubstract" shape="rect" coords="572,112,705,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -165,7 +167,7 @@ Fonctions membres publiques</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implémenté dans <a class="el" href="class_background_substract.html#a2e82cc169bb699bce598fc48a1df332b">BackgroundSubstract</a>, <a class="el" href="class_human_detection.html#a39415c3914a93b2a062bc86ce8e8515b">HumanDetection</a>, <a class="el" href="class_object_following.html#a7111576f95482a36287e5c618cd570a9">ObjectFollowing</a>, et <a class="el" href="class_decision_cout.html#a973d52ca592ec3791595c5533a508125">DecisionCout</a>.</p>
+<p>Implémenté dans <a class="el" href="class_background_substract.html#a2e82cc169bb699bce598fc48a1df332b">BackgroundSubstract</a>, <a class="el" href="class_human_detection.html#a39415c3914a93b2a062bc86ce8e8515b">HumanDetection</a>, <a class="el" href="class_object_following.html#a7111576f95482a36287e5c618cd570a9">ObjectFollowing</a>, <a class="el" href="class_decision_cout.html#a973d52ca592ec3791595c5533a508125">DecisionCout</a>, et <a class="el" href="class_decision_file_save.html#a4e4261a2bddcd87459ff4bbd0b37c55d">DecisionFileSave</a>.</p>
 
 </div>
 </div>
@@ -198,7 +200,7 @@ Fonctions membres publiques</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implémenté dans <a class="el" href="class_background_substract.html#a0c66d2137f30bf6562ee37f6f60e9b95">BackgroundSubstract</a>, <a class="el" href="class_human_detection.html#a19d8d251549f6c1426584536e8c05b24">HumanDetection</a>, <a class="el" href="class_object_following.html#a5103e00d43d5c64a86a60daeb1a461be">ObjectFollowing</a>, et <a class="el" href="class_decision_cout.html#a25a3814f5e5c783abf7db949dfbaab9c">DecisionCout</a>.</p>
+<p>Implémenté dans <a class="el" href="class_background_substract.html#a0c66d2137f30bf6562ee37f6f60e9b95">BackgroundSubstract</a>, <a class="el" href="class_human_detection.html#a19d8d251549f6c1426584536e8c05b24">HumanDetection</a>, <a class="el" href="class_object_following.html#a5103e00d43d5c64a86a60daeb1a461be">ObjectFollowing</a>, <a class="el" href="class_decision_cout.html#a25a3814f5e5c783abf7db949dfbaab9c">DecisionCout</a>, et <a class="el" href="class_decision_file_save.html#a6c1a00bcb2949e5838a85915607de5c3">DecisionFileSave</a>.</p>
 
 </div>
 </div>
@@ -212,7 +214,7 @@ Fonctions membres publiques</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_processing.html">Processing</a></li>
-    <li class="footer">Généré le Mercredi Mai 8 2013 14:37:05 pour Kiwatch Détection Forme Humaine par
+    <li class="footer">Généré le Samedi Mai 11 2013 21:54:01 pour Kiwatch Détection Forme Humaine par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
   </ul>

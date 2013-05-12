@@ -3,7 +3,7 @@ since release 1.8.0.  As a result some sentences may appear in English.
 
 warning: source ..\include\MovementDetection.h is not a readable file or directory... skipping.
 warning: source ..\src\MovementDetection.cpp is not a readable file or directory... skipping.
-C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/src/Records.cpp:98: warning: no matching class member found for 
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/src/Records.cpp:103: warning: no matching class member found for 
   void Records::checkMatchMovement(vector< cv::Rect > &zones, vector< cv::Point > &directions, float ceil)
 Possible candidates:
   bool Records::checkMatchMovement(cv::Rect &coordinates, cv::Point &direction, float ceil)
@@ -21,21 +21,23 @@ Possible candidates:
   static cv::Point DetectionTool::getDirectionRectangle(const cv::Mat_< cv::Point2f > &flow, cv::Point a, cv::Point b)
   static cv::Point DetectionTool::getDirectionRectangle(const cv::Mat_< cv::Point2f > &flow, cv::Rect rect)
 
-C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/src/ObjectFollowing.cpp:66: warning: no matching class member found for 
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/src/ObjectFollowing.cpp:84: warning: no matching class member found for 
   Mat ObjectFollowing::getMovementDirection(Mat &img, Rect zone)
 Possible candidates:
   cv::Mat ObjectFollowing::getMovementDirection(cv::Mat &img, cv::Rect zone)
   cv::Mat ObjectFollowing::getMovementDirection(cv::Mat &img)
 
-C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/src/ObjectFollowing.cpp:91: warning: no matching class member found for 
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/src/ObjectFollowing.cpp:109: warning: no matching class member found for 
   Mat ObjectFollowing::getMovementDirection(Mat &img)
 Possible candidates:
   cv::Mat ObjectFollowing::getMovementDirection(cv::Mat &img, cv::Rect zone)
   cv::Mat ObjectFollowing::getMovementDirection(cv::Mat &img)
 
 C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Processing.h:22: warning: argument 'string' of command @param is not found in the argument list of Processing::getClassName()=0
-C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:43: warning: argument 'Vecteur' of command @param is not found in the argument list of Records::checkMatchMovement(std::vector< cv::Rect > &zones, std::vector< cv::Point > &dirs, float ceil)
-C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:43: warning: argument 'Vecteur' of command @param is not found in the argument list of Records::checkMatchMovement(std::vector< cv::Rect > &zones, std::vector< cv::Point > &dirs, float ceil)
-C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:43: warning: The following parameters of Records::checkMatchMovement(std::vector< cv::Rect > &zones, std::vector< cv::Point > &dirs, float ceil) are not documented:
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:15: warning: argument 'max_width' of command @param is not found in the argument list of Records::Records()
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:15: warning: argument 'max_height' of command @param is not found in the argument list of Records::Records()
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:50: warning: argument 'Vecteur' of command @param is not found in the argument list of Records::checkMatchMovement(std::vector< cv::Rect > &zones, std::vector< cv::Point > &dirs, float ceil)
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:50: warning: argument 'Vecteur' of command @param is not found in the argument list of Records::checkMatchMovement(std::vector< cv::Rect > &zones, std::vector< cv::Point > &dirs, float ceil)
+C:/Users/lu-bu_000/Documents/Programmation/C++/denseOpticalflow/include/Records.h:50: warning: The following parameters of Records::checkMatchMovement(std::vector< cv::Rect > &zones, std::vector< cv::Point > &dirs, float ceil) are not documented:
   parameter 'zones'
   parameter 'dirs'

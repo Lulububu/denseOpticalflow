@@ -65,16 +65,20 @@ bool AlgorithmManager::loadParameters(string file_name)
         // cette boucle s'arrête dès qu'une erreur de lecture survient
         while ( getline( file, line ) )
         {
+			//analsye des ligne n'étant pas des commentaires ou vide
 			if(line.size() > 0 && line.at(0) != ';')
 			{
+				//suppression des espaces dans la ligne
 				line.erase(remove(line.begin(), line.end(), ' '));
+
 				if(line.at(0) == '[')
 				{
+					//fin de la section
 					int end_class_name = line.find_last_of(']');
 					if(end_class_name > 0)
 					{
 						 class_name = line.substr(1,end_class_name -1);
-						 //cout << class_name << endl;
+						 //initialisation de la map pour cette section
 						 parameters[class_name] = map<string, string>();
 					}
 
@@ -91,16 +95,12 @@ bool AlgorithmManager::loadParameters(string file_name)
 			}
         }
 
+		//le chargement est fini, il faut maintenant envoyer les paramètres aux bonnes classe
 		for (map<string, map<string,string> >::iterator it=parameters.begin(); it!=parameters.end(); ++it)
 		{
-			//cout << it->first << ":" << endl;
 			Processing* proc = allprocess[it->first];
 			if(proc!= NULL)
 				proc->setParameters(it->second);
-			//else
-				//cout << "Aucune classe correspondant à : " << it->first << " n'a été chargée"<<endl;
-			//for (map<string,string>::iterator it2=it->second.begin(); it2!=it->second.end(); ++it2)
-				//cout << it2->first << " => " << it2->second << endl;
 		}
 
 

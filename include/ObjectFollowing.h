@@ -68,5 +68,13 @@ private:
 	cv::Mat previous_img;
 
 	bool previous_img_initiated;
+
+	double pyr_scale;
+	int levels;
+	int winsize;
+	int iterations;
+	int poly_n;
+	double poly_sigma;
+	int flags;
 };
 

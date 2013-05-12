@@ -28,6 +28,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logoKiw.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Kiwatch Détection Forme Humaine
    </div>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_container.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,6 +105,7 @@ $(document).ready(function(){initNavTree('class_container.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
 <a href="class_container-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Container</div>  </div>
@@ -114,40 +116,49 @@ $(document).ready(function(){initNavTree('class_container.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a5007a451eb9e917e125db45221de4934"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a5007a451eb9e917e125db45221de4934">Container</a> (int max_width, int max_height)</td></tr>
-<tr class="separator:a5007a451eb9e917e125db45221de4934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b0c5515d6863c1bc98cc93b65952f42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a1b0c5515d6863c1bc98cc93b65952f42">Container</a> ()</td></tr>
+<tr class="separator:a1b0c5515d6863c1bc98cc93b65952f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dce6d05419bc69bef43593c6d231d8f"><td class="memItemLeft" align="right" valign="top">cv::Mat &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a5dce6d05419bc69bef43593c6d231d8f">getImg</a> ()</td></tr>
 <tr class="separator:a5dce6d05419bc69bef43593c6d231d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8f2828696247d6b2a394f40513fe51c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#ae8f2828696247d6b2a394f40513fe51c">setNewFrame</a> (cv::Mat &amp;frame)</td></tr>
 <tr class="separator:ae8f2828696247d6b2a394f40513fe51c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84574f02dee9642f42ff5fe56f9322af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a84574f02dee9642f42ff5fe56f9322af">setResolution</a> (int width, int height)</td></tr>
+<tr class="separator:a84574f02dee9642f42ff5fe56f9322af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d1f94b496b3d53e307e956058edb981"><td class="memItemLeft" align="right" valign="top">std::vector&lt; cv::Rect &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a3d1f94b496b3d53e307e956058edb981">getHumanDetections</a> ()</td></tr>
 <tr class="separator:a3d1f94b496b3d53e307e956058edb981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e7f24952afbbd81b52dcd990d305bff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_records.html">Records</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a0e7f24952afbbd81b52dcd990d305bff">getRecords</a> ()</td></tr>
 <tr class="separator:a0e7f24952afbbd81b52dcd990d305bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4bcc67b79054aff4dbe96397668c17b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#ab4bcc67b79054aff4dbe96397668c17b">setVideoFileName</a> (std::string file_name)</td></tr>
+<tr class="separator:ab4bcc67b79054aff4dbe96397668c17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96632fd12b57c05123b12c16f9804ab8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a96632fd12b57c05123b12c16f9804ab8">getVideoFileName</a> ()</td></tr>
+<tr class="separator:a96632fd12b57c05123b12c16f9804ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a9358b72b56ee5d734bb56a8bfcfba7e9"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_container.html#a9358b72b56ee5d734bb56a8bfcfba7e9">img</a></td></tr>
+<tr class="separator:a9358b72b56ee5d734bb56a8bfcfba7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a7aca16544dd9fb4ff83a109390d39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7a7aca16544dd9fb4ff83a109390d39"></a>
+std::vector&lt; cv::Rect &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>humanDetections</b></td></tr>
+<tr class="separator:ac7a7aca16544dd9fb4ff83a109390d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459c48ac7aa60bed2cf8ff06d5546ad4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a459c48ac7aa60bed2cf8ff06d5546ad4"></a>
+<a class="el" href="class_records.html">Records</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rec</b></td></tr>
+<tr class="separator:a459c48ac7aa60bed2cf8ff06d5546ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af847fa2218dc9b396984c0a73aa3e760"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af847fa2218dc9b396984c0a73aa3e760"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>video_file_name</b></td></tr>
+<tr class="separator:af847fa2218dc9b396984c0a73aa3e760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe de gestion des échanges de données entre processus. Permet l'accès à la frame courante à tous les processus. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
-<a class="anchor" id="a5007a451eb9e917e125db45221de4934"></a>
+<a class="anchor" id="a1b0c5515d6863c1bc98cc93b65952f42"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Container::Container </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>max_width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>max_height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -207,6 +218,23 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a96632fd12b57c05123b12c16f9804ab8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Container::getVideoFileName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie le chemin d'accès de la vidéo. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>string chemin d'accès de la vidéo. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae8f2828696247d6b2a394f40513fe51c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -230,6 +258,78 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a84574f02dee9642f42ff5fe56f9322af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Container::setResolution </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renseigne la résolution de la vidéo. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab4bcc67b79054aff4dbe96397668c17b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Container::setVideoFileName </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>file_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Informe le conteneur du nom de la vidéo en cours d'analyse. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_name</td><td>Chemin d'accès vers la vidéo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a class="anchor" id="a9358b72b56ee5d734bb56a8bfcfba7e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cv::Mat Container::img</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Image courante. </p>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li><a class="el" href="_container_8h_source.html">Container.h</a></li>
 <li>Container.cpp</li>
@@ -240,7 +340,7 @@ Fonctions membres publiques</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_container.html">Container</a></li>
-    <li class="footer">Généré le Mercredi Mai 8 2013 14:37:05 pour Kiwatch Détection Forme Humaine par
+    <li class="footer">Généré le Samedi Mai 11 2013 21:54:01 pour Kiwatch Détection Forme Humaine par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
   </ul>

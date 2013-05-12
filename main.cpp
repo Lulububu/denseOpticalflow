@@ -1,5 +1,5 @@
 
-
+#include "include\ComplexTest.h"
 #include "include\TestObject.h"
 
 #include "./include/AlgoLauncher.h"
@@ -24,6 +24,9 @@ int main(int argc, char** argv)
 		else
 			config_file_name = "config.ini";
 
+		
+		 // Instanciez ICI votre algorithme.
+		 // ex : AlgoLauncher* launcher = new MyOwnAlgorithm(video_file_name);
 
 		AlgoLauncher* launcher = new PtransLauncher(video_file_name);
 		cout << "étude de la vidéo " << video_file_name << endl;
@@ -47,7 +50,7 @@ int main(int argc, char** argv)
 
 	//TestObject test;
 
-
+	//ComplexTest test;
 
 
 }

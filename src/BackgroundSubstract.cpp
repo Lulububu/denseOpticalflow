@@ -18,10 +18,13 @@ BackgroundSubstract::~BackgroundSubstract()
 
 void BackgroundSubstract::run(Container& cont)
 {
+	
+	//mise à jour du modèle d'arrière plan et modification de l'image
 	if(updateBackgroundModel(cont.getImg()))
 	{
 		cont.getImg() = getForeground(erode_iteration, dilate_iteration);
 	}
+
 }
 
 std::string BackgroundSubstract::getClassName()
@@ -40,12 +43,13 @@ bool BackgroundSubstract::updateBackgroundModel(Mat& img)
     current_img = img;
     IplImage ipl = img;
     if(!bg_model_initiated)
-    {
+    {//initialisation du modèle d'arrière plan
         background_model = cvCreateFGDStatModel(&ipl);
         bg_model_initiated= true;
 		return false;
     }else
     {
+		//mise à jour
         cvUpdateBGStatModel(&ipl,background_model);
 		return true;
     }
@@ -53,11 +57,15 @@ bool BackgroundSubstract::updateBackgroundModel(Mat& img)
 
 Mat BackgroundSubstract::getForeground(int nb_erode, int nbdilate)
 {
+	//on utilise le résultat du background model comme un masque sur l'image de la vidéo
     Mat result = background_model->foreground;
 
     cvtColor(result, result, CV_GRAY2RGB);
+
+	//l'érosion dilatation permet de supprimer les zones trop petites
     erode(result, result, Mat(),Point(-1, -1), nb_erode);
     dilate(result, result, Mat(), Point(-1, -1),  nbdilate);
+
     bitwise_and(result, current_img, result );
     return result;
 }
